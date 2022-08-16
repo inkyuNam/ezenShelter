@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    <mapper namespace="com.ezen.p2.dao.IShopDao">
+    
+    	<select id="getHotlist" resultType="com.ezen.p2.dto.ProductVO">
+    	
+    	</select>
+    
+    	<select id="getDogProductList" resultType="com.ezen.p2.dto.ProductVO">
+    		select * from product where kind = "2";
+    	</select>
+    	
+    	<select id="getCatProductlist" resultType="com.ezen.p2.dto.ProductVO">
+    		select * from product where kind = "1";
+    	</select>
+    	
+    	<select id="getEtcProductlist" resultType="com.ezen.p2.dto.ProductVO">
+    		select * from product where kind = "0";
+    	</select>	
+    	<!-- 만약 사료랑 간식 같은것도 분류를 하려면 kind like "1%" 이런식으로 
+    			0으로 시작하는것 / 1로 시작하는거 / 2로 시작하는거 로 나눈다음에 세부는 01 / 02 로  -->
+    			
+    	<select id="getProductOne" resultType="com.ezen.p2.dto.ProductVO">
+    		select * from product where pseq = #{param1}
+    	</select>
+    			
+    			
+    </mapper>

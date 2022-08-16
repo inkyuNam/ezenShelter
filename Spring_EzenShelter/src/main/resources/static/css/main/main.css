@@ -1,0 +1,181 @@
+.baneer > h1{color: #061f5c; font-size: 42px; text-align: center;}
+.baneer > p{color: #061f5c; text-align: center; }
+
+a{text-decoration: none; color: #061f5c;}
+h1{font-family: 'Jua', sans-serif;font-weight: 10; color: #061f5c; }
+p{font-family: 'Gothic A1', sans-serif; font-weight: 700; color: #061f5c;}
+
+body{
+	overflow-x: hidden; overflow-y: auto; margin:0; padding:0;
+}
+#wrap{
+	background: #f0f2ef;
+	width: 1200px;
+	position: relative;
+	margin: 0 auto;
+	z-index:1;
+}
+
+#head{
+	position: fixed;
+	width: 1200px; height: 100px;
+	border-bottom: 1px solid #061f5c;
+	background-color: white;
+	margin: 0 auto; padding: 0; margin:0;
+	z-index:1;
+}
+.logo{
+	position: relative;
+	display: inline-block;
+	width: 200px; height: 70px;
+	text-align: center;
+	left: 44%;
+	margin-bottom: 10px;
+}
+.mainmenu{
+	position: relative;
+	width: 1200px; height: 120px; margin: 0 atuo;
+	background-color: pink;
+}
+#menubar{
+	position: relative;
+
+	width: 1200px;
+	height: 50px;
+	bottom: 0;
+	float: right;
+}
+.menues{
+	position: relative;
+	text-align: center;
+	right: -430px;
+}
+.menues{
+	margin:0;
+	padding:0;	
+}
+#menubar ul li{
+	list-style: none;
+	padding-right: 50px;
+	text-align: center;
+	float: left;
+	font-family: 'Gothic A1', sans-serif; font-weight: 700;
+	font-size:120%;
+	color: #061f5c;
+	
+}
+
+#clear{
+	width: 100%; height: 100px;
+	background-color: black;
+	/* display: none; */
+}
+
+#form{
+	position: absolute;
+	margin-top: 30px;
+	left: 30%;
+	width: 300px;
+}
+
+
+
+/* 메인창 */
+.main{
+	width: 1200px;
+	height: 1200px;
+	background: #f0f2ef;
+}
+#slide{
+	z-index: 50px;
+	width: 3600px; 
+	height: 300px;
+	padding: 0px;
+	margin: 0;
+	transition: 1s;
+	overflow: hidden;
+}
+#slide1{
+	width: 1200px; height: 300px; 
+	margin: 0; padding: 0;
+	/* background-color: black; */
+	overflow: hidden;
+}
+#slide1 img{
+	display: block;
+	float: left;
+}
+.baneer{
+	
+	background: #f0f2ef;
+	width: 1200px;height: 400px;
+	padding: 0; margin: 0;
+}
+
+.info{
+	background-color: #061f5c;
+	width: 500px; height: 300px;
+	
+}
+
+
+
+
+
+
+#loginForm{position:absolute; left:400px; top:50px; width:400px; height:350px; border:2px solid gray; background:white; display:none; z-index:1500;}
+
+.closeLog{position:absolute; top:5px; right:5px; cursor:pointer;}
+
+#line{position:relative; margin:0 auto; width:350px; height:94px;}
+#id{position:absolute; width:350px; height:45px; top:0; border:1px solid gray;}
+#pwd{position:absolute; width:350px; height:46px; bottom:0; border-left:1px solid gray; border-bottom:1px solid gray;
+	border-right:1px solid gray;}
+#close{position:absolute; top:10px; right:10px; width:20px; height:20px; border:1px solid black; text-align:center;}
+.login{height:30px; font-size:15px;}
+#loginButton{position:relative; width:350px; height:40px; top:50px; margin:0 auto; border:1px solid gray;
+			text-align:center; font-weight:bold; line-height:40px;}
+#loginButton:hover{background:orange; color:white; cursor:pointer;}
+#bottom{position:relative; margin:0 auto; width:350px; height:40px; top:65px;}
+#join{position:absolute; left:0; font-weight:bold; line-height:35px; cursor:pointer;}
+#find{position:absolute; right:0; font-weight:bold; line-height:35px;}
+#message{position:absolute; top:195px; height:10px; left:120px; color:blue; font-weight:bold;}
+
+input[type=password]{border:0; outline:none;}
+input[type=text]{border:0; outline:none;}
+
+#terms{position:absolute; left:400px; top:50px; width:400px; height:550px; 
+border:2px solid gray; background:white; z-index:1500; display:none;}
+
+
+
+
+
+/* side_help 버튼 div   */
+	#toclose{position:fixed; width:20px; height:20px; margin-top: 0; right:10%; bottom: 250px; z-index:10;}
+		 
+	#help_icon{position:fixed; right:10%; bottom: 100px;width:100px; 
+			height:100px; background-image:url(../images/help.png);
+			background-size:100px 100px; z-index:10;}
+		
+
+
+
+
+/* help div */
+
+#help_wrap{position:absolute; width:400px; height:650px; border:2px solid gray; margin : 0 auto; display:none; 
+			background:white; left:400px; z-index:1000;}
+#btn119{width:80px; height:30px; margin:0 auto; border:1px solid silver; cursor:pointer; text-align:center; font-weight:bold; 
+	line-height:30px; background-color:#dcdcdc;}
+#btn119:hover{border:1px solid silver; color:white; background-color:#5AD18F;}
+
+
+
+
+/* footer  */
+	.footer{position:relative; margin:0 auto; width:1200px; background-color:#061f5c; padding:15px;}
+	.ft_menu ul{list-style:none;}
+	.ft_menu ul li{float:left; padding:10px;}
+	.address{color:silver; font-weight:bold;}
+	.ft_menu ul li a{color:white; font-weight:bold; text-decoration:underline;}
