@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.ezen.p2.dao.IBoardDao">
+	<resultMap  id="boardMap" type="java.util.HashMap"></resultMap>
+	<resultMap  id="replyMap" type="java.util.HashMap"></resultMap>
+	
+	<select id="boardList" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{
+			CALL boardList( 
+				#{startNum},#{endNum},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=boardMap}
+			)
+		}
+	</select>
+	
+	<select id="boardGetAllCount" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL boardGetAllCount( 
+				#{tableName},
+				#{cnt , mode=OUT, jdbcType=INTEGER}
+			)	  
+		{
+	</select>
+	
+	<insert id="insertBoard" parameterType="com.ezen.p2.dto.BoardVO">
+		insert into board(b_num,id,title,b_content,b_image)
+		values(seq_board_seq.nextVal,#{id},#{title},#{b_content},#{b_image})
+	</insert>
+	
+	<update id="plusCountOne">
+		update board set b_count=b_count+1 where b_num=#{param1}
+	</update>
+	
+	<select id="getBoardOne" resultType="com.ezen.p2.dto.BoardVO">
+		select*from board where b_num=#{param1}
+	</select>
+
+</mapper>
