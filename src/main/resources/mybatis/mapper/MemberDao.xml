@@ -5,8 +5,110 @@
 	
 <mapper namespace="com.ezen.p2.dao.IMemberDao">
 
+	<resultMap id="qnaMap" type="java.util.HashMap"></resultMap>
+
 	<select id="getMember" resultType="com.ezen.p2.dto.MemberVO">
 		select*from member where id=#{param1}
 	</select>
+	
+	<insert id="insertMember" parameterType="com.ezen.p2.dto.MemberVO">
+		insert into member(id,pwd,name,phone,email,post_code,address1,address2,address3)
+		values(#{id},#{pwd},#{name},#{phone},#{email},#{post_code},#{address1},#{address2},#{address3})
+	</insert>
+	
+	<delete id="deleteMember">
+		delete from member where id=#{id}
+	</delete>
+	
+	<update id="updateMember" parameterType="com.ezen.p2.dto.MemberVO">
+		update member set pwd=#{pwd},phone=#{phone},email=#{email},post_code=#{post_code},
+		address1=#{address1},address2=#{address2},address3=#{address3} where id=#{id}
+	</update>
+	
+	<insert id="qnaWrite">
+		insert into qna(qa_num,qa_sel,id,qa_title,qa_content)
+		values(SEQ_qna_qa_num.nextVal,#{qa_sel},#{id},#{qa_title},#{qa_content})
+	</insert>
+	
+	<select id="getQnaList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getQnaList(
+				#{id},#{startNum},#{endNum},
+				#{ref_cursor, mode=OUT,jdbcType=CURSOR,javaType=ResultSet,resultMap=qnaMap}
+			)
+		}
+	</select>
+	
+	<select id="mypageQnaView" resultType="com.ezen.p2.dto.QnaVO">
+		select*from qna where qa_num=#{param1}
+	</select>
 
+	<insert id="insertHelp" parameterType="com.ezen.p2.dto.HelpVO">
+		insert into help(h_num,h_name,h_content,h_phone)
+		values (SEQ_help_num.nextVal,#{h_name},#{h_content},#{h_phone})
+	</insert>
+	
+	<select id="getAllCount" resultType="_int">
+		select count(*) from qna where id=#{param1}
+	</select>
+	
+	<select id="getadoptCount" resultType="int">
+		select count(*) as cnt from detail where tmp='n' and id= #{id}
+	</select>	
+	
+	<select id="getheartCount" resultType="int">
+		select count(*) as cnt from detail where tmp='y' and id= #{id}
+	</select>	
+	
+	
+	<!-- 입양현황 리스트-->
+	<select id="getadoptList"  resultType="com.ezen.p2.dto.MyPageVO">
+		select*from( 
+		select*from( 
+		select rownum as rn, p.*from(
+		(select * from detail where tmp='n' and id= #{id} order by state) p) 
+		)where rn &gt;= #{startNum}
+		)where rn &lt;= #{endNum}
+	</select>
+	
+	
+	<!-- 찜 리스트-->
+	<select id="getheartList"  resultType="com.ezen.p2.dto.MyPageVO">
+		select*from( 
+		select*from( 
+		select rownum as rn, p.*from(
+		(select * from detail where tmp='y' and id= #{id} order by num desc) p) 
+		)where rn &gt;= #{startNum}
+		)where rn &lt;= #{endNum}
+	</select>
+	
+	
+	<!-- 마이페이지 찜 삭제 -->
+	<select id="getDetail" resultType="com.ezen.p2.dto.MyPageVO">
+		select* from detail where num = #{num}
+	</select>
+	
+	<update id="updateState">
+		update pet set state = #{state} where p_num = #{p_num}
+	</update>
+	
+	<delete id="removeHeart" >
+		delete from detail where num= #{num}
+	</delete>
+	
+	<select id="getOrderOseqList" resultType="_int">
+		select oseq from orders2 where id=#{param1} 
+	</select>
+	
+	<select id="getOrderList" resultType="com.ezen.p2.dto.OrderVO">
+		select * from order_view where oseq = #{param1} and result != '4' order by odseq
+	</select>
+	
+	<select id="getOldOrderList" resultType="com.ezen.p2.dto.OrderVO">
+		select * from order_view where oseq = #{param1} and result = '4' order by odseq desc
+	</select>
+	
+	<select id="getOrderOneOseq" resultType="com.ezen.p2.dto.OrderVO">
+		select * from order_view where oseq = #{param1}
+	</select>
 </mapper>

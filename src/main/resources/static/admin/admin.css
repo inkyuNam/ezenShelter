@@ -1,0 +1,257 @@
+@charset "UTF-8";
+
+/* admin 헤더 */
+
+a{text-decoration: none; color: #061f5c;}
+body{
+	overflow-x: hidden; overflow-y: auto; margin:0; padding:0;
+}
+
+#wrap{
+	width: 1200px;
+	position: relative;
+	margin: 0 auto;
+	z-index:1;
+}
+#head{
+	position: fixed;
+	width: 1200px; height: 100px;
+	border-bottom: 1px solid #061f5c;
+	background-color: white;
+	margin: 0 auto; padding: 0; margin:0;
+	z-index:1;
+}
+.logo{
+	position: relative;
+	display: inline-block;
+	width: 200px; height: 70px;
+	text-align: center;
+	left: 44%;
+	margin-bottom: 10px;
+}
+.mainmenu{
+	position: relative;
+	width: 1200px; height: 120px; margin: 0 atuo;
+	background-color: pink;
+}
+#menubar{
+	position: relative;
+
+	width: 1200px;
+	height: 30px;
+	bottom: 0;
+	float: right;
+}
+.menues{
+	position: relative;
+	text-align: center;
+	right: -430px;
+}
+.menues{
+	margin:0;
+	padding:0;	
+}
+#menubar ul li{
+	list-style: none;
+	padding-right: 40px;
+	text-align: center;
+	float: left;
+	font-family: 'Gothic A1', sans-serif; font-weight: 700;
+	color: #061f5c;
+	
+}
+.smallAndRed{
+    position: absolute;
+    background: red;
+    color: white;
+    right: -8px;
+    top: -18px;
+    border-radius: 50%;
+    width: 20px;
+}
+#clear{
+	width: 100%; height: 100px;
+	background-color: black;
+	/* display: none; */
+}
+
+
+/* 메인 공간 창출*/
+	#blank{height:100px;}
+
+
+
+/* 어드민 로그인 */
+
+#admin_Lin{margin:150px auto; padding:50px 30px; width: 500px;background: #f0f2ef;}
+#admin_log tr td{border:1px solid gray;}
+#admin_log tr:first-child td{border:none;}
+#admin_log tr td input{border:0; outline:none;}
+#admin_log th{background:#061f5c; color:white; text-align:center;}
+
+#log_btn{border:1px solid gray; border-radius:5px; width:48px; height:20px; 
+		font-size:15px; line-height:20px; margin-left:190px; cursor:pointer;}
+#log_btn:hover{background:#6885cc; color:white;}
+ /* 일단 메인 게시판인데 세부에도 들어갈 수도? */
+ 
+ 	.borderlist{width:800px; margin:0 auto; background: #f0f2ef;}
+ 
+	table#obo_board{
+	    width: 800px;
+	    border-collapse: collapse;
+	    line-height: 24px;
+	    background: #dfe5ed;
+	}
+	#obo_board td,#obo_board th {
+	    border-top:1px solid black;
+	    border-bottom:1px solid black;
+	    border-collapse: collapse;
+	    text-align: left;
+	    padding: 10px;
+	}
+	
+	
+	
+	
+	/* 펫리스트는 이미지가 들어가기 때문에 테이블 구조가 조금 달라져서 일단 생서한 css */
+	
+	.borderlist{width:800px; margin:0 auto; background: #f0f2ef;}
+ 
+	table#pet_board{
+	    width: 800px;
+	    border-collapse: collapse;
+	    line-height: 40px;
+	    background: #dfe5ed;
+	}
+	#pet_board tr:first-child td { height: 50px;}
+	#pet_board td,#pet_board th {
+		height:140px;
+	    border-top:1px solid black;
+	    border-bottom:1px solid black;
+	    border-collapse: collapse;
+	    text-align: left;
+	    padding: 10px;
+	}
+	
+	.sel_state{float:right; margin-right:15px; border:1px solid gray; background:rgb(190, 190, 190); border-radius:5px;}
+	.selected{background-color:orange; color:white;}
+
+	.imgsz{width:200px; transition:1s;}
+	.big_imgs{position:absolute; top:0px;}
+	.imgsz img{width:200px;}
+	.big_imgs img{width:100%;transition:1s;}
+	
+	
+	/* 구조 디테일 페이지 */
+	
+	#gocenter{margin:100px auto; width:900px; height: 600px;}
+	#help_detail tr{width:800px; height:50px;}
+	#help_detail td{border: 1px solid black;width:130px;}
+	#help_detail tr:first-child td:nth-child(2n-1) { background:#061f5c; color:white; text-align:center;}
+	#help_detail tr:nth-child(2) td{text-align:center; padding:15px;}
+	#help_detail tr:last-child td:first-child {border:none;}
+	#help_detail tr:last-child td:last-child {background-color: #ffb8b8;}
+	.help_bts{cursor:pointer; width:100px; height:40px; border:1px solid gray; border-radius:5px; display:inline-block;
+			line-height:40px; font-weight:bold; text-align: center; margin:0 auto;}
+	.help_bts:hover{background:#6885cc; color:white;}
+	
+	
+	/* 보호소 선택 */
+	#shelters{width:800px; height:600px;}
+	#shelters tr td{border: 1px solid black; width:150px; height:150px;}
+	#shelters tr:first-child td:last-child { width:500px;}
+		
+		
+	.shelter_detail{width:100%; height:100%; display:none;}
+	.selected_shelter{display:block;}
+		/* 만약 좌측에 들어가는 보호소들이 이미지 위주라면 이 크기로 
+			 텍스트 위주라면 크기를 확 줄이게 될것 같음.*/
+			 
+	.checked{background:#061f5c;color:white;}
+			 
+	#sh_img{width:100%;height:400px; padding-top:20px;}
+	#sh_tb tr td{height:50px;}
+	#sh_tb tr td:nth-child(2n+1) {background:#061f5c;color:white;}
+	
+	
+	
+	
+	/* 펫 디테일 페이지 */
+	
+	#gocenter2{margin:100px auto; width:800px; height: 600px;}
+	.asdf{color:blue; font-size:110%; font-weight: bold;}
+	#p_detail{background-color: #ffffd9;}
+	#p_detail tr td{border:1px solid black;}
+	#p_detail tr:first-child td:first-child {width:300px;height:200px;}
+	#p_detail tr:first-child td:last-child {width:500px;}
+	#p_detail tr:first-child td img{width:100%;}
+ 	#p_detail tr:last-child {height:30px; line-height: 30px;}
+ 	
+ 	#etc_detail{background-color: #ffffd9;}
+	#etc_detail tr td{border:1px solid black; width:100px;text-align:center;}
+	#etc_detail tr:first-child td:first-child {width:400px;height:200px;}
+ 	#etc_detail tr:first-child td img{width:100%;}
+ 	
+ 	#etc_detail tr:first-child td:nth-child(2n) {background-color:#061f5c; color:white; width:75px;}
+	#etc_detail tr:not(:first-child) td:nth-child(2n+1) {background-color:#061f5c; color:white;}
+	
+	#etc_detail tr:last-child td{background-color:white; border:none;}
+	#etc_detail tr:last-child td:first-child{background-color:white; border:none;}
+	#etc_detail tr:last-child td:last-child{background-color:white; border:none;}
+		
+		
+	/* 펫 추가 */
+	#gocenter3{margin:100px auto; width:1130px;border:1px solid black; overflow:auto;}
+		
+	table#add_Pet_tb tr td{border:1px solid black;}
+	table#add_Pet_tb tr td:nth-child(2n) {	width:150px; } 
+	table#add_Pet_tb tr td:nth-child(2n+1) {	width:100px; background:#061f5c; color:white; text-align:center; }
+		
+	
+	
+	
+	/* 후기 게시판 */
+	#boardViewWrap{position:relative; width:900px; margin:0 auto;}
+	#searchWrap{position:relative; width:750px; height:40px; margin:0 auto;}
+	#tool{position:absolute; width:100px; height:40px; left:0; border:1px solid #061f5c; 
+	text-align:center;  color:#061f5c; font-weight:bold; border-radius:5px; font-weight:bold; color:#061f5c; line-height:40px; font-size:120%;
+	display:flex; align-items: center;}
+	#inputSearch{position:absolute; width:200px; height:40px; left:15%; border:1px solid #061f5c;
+	border-radius:5px; display:flex; align-items:center;}
+	#searchGo{position:absolute; width:100px; height:40px; right:42%; border:1px solid #061f5c;
+	font-weight:bold; border-radius:5px; color:#061f5c; text-align:center; line-height:40px;
+	cursor:pointer; font-size:120%;}
+	#searchInput{font-weight:bold; font-size:120%; border:none; outline:none;
+	background-color:#f0f2ef;}
+	#reviewTable{background-color:white; border:2px solid #061f5c; border-radius:15px;}
+	#boardInfo{font-weight:bold; color:#061f5c; border:none;}
+	#boardTitle{width:600px; height:10%; font-weight:bold; color:#061f5c; font-size:130%;
+	border-bottom:1px solid gray;}
+	#boardImg{width:300px; cursor:pointer; border-radius:10px; border:2px solid #061f5c;}
+	#searchGo:hover{background-color:#061f5c; color:white;}
+	#boardImg img{width:260px; height:180px; object-fit: contain; border-radius:15px;}
+	#boardPaging{width:300px; font-size:130%; font-weight:bold; margin:0 auto; text-align:center;}	
+	#listView{position:absolute; width:100px; height:40px; right:25%; border:1px solid #061f5c;
+	font-weight:bold; border-radius:5px; color:#061f5c; text-align:center; line-height:40px;
+	cursor:pointer; font-size:120%;}
+	#listView:hover{background-color:#061f5c; color:white;}
+	
+	#del_btn{border:1px solid gray; border-radius:5px; width:40px; height:20px; 
+		font-size:20px; line-height:20px; margin-left:800px; cursor:pointer;}
+	#del_btn:hover{background-color:#061f5c; color:white;}
+	
+	
+	/* qna 디테일 페이지 */
+	#gocenter4{margin:150px auto; width:600px; height: 600px;}
+	#qna_detail tr{text-align: center;}
+	#qna_detail tr td{border: 1px solid black;}
+	#qna_detail tr:first-child td:first-child{width:70px;}
+	#qna_detail tr:first-child td:nth-child(3){width:100px;}
+	#qna_detail tr:first-child td:nth-child(2n){width:200px;}
+	#qna_detail tr:first-child td:nth-child(2n+1){background-color:rgb(186, 227, 216);}
+	#qna_detail tr:nth-child(2) td:first-child{background-color:rgb(186, 227, 216);}
+	#qna_detail tr:nth-child(2) td:nth-child(3){background-color:rgb(186, 227, 216);}
+	#qna_detail tr:nth-child(3) td:first-child{background-color:rgb(186, 227, 216); height:60px;}
+	#qna_detail tr:nth-child(4) td textarea{height: 225px;  width: 580px;  text-align: center;}
+	
+	

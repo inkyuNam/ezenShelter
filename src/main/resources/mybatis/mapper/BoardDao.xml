@@ -16,6 +16,33 @@
 		}
 	</select>
 	
+	<select id="boardList1" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{
+			CALL boardList1( 
+				#{startNum},#{endNum},#{key},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=boardMap}
+			)
+		}
+	</select>
+	
+	<select id="boardList2" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{
+			CALL boardList2( 
+				#{startNum},#{endNum},#{key},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=boardMap}
+			)
+		}
+	</select>
+	
+	<select id="boardList3" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{
+			CALL boardList3( 
+				#{startNum},#{endNum},#{key},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=boardMap}
+			)
+		}
+	</select>
+	
 	<select id="boardGetAllCount" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
 			CALL boardGetAllCount( 
@@ -23,6 +50,33 @@
 				#{cnt , mode=OUT, jdbcType=INTEGER}
 			)	  
 		{
+	</select>
+	
+	<select id="boardGetAllCount1" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL boardGetAllCount1(
+				#{tableName},#{key},
+				#{cnt , mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+	
+	<select id="boardGetAllCount2" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL boardGetAllCount2(
+				#{tableName},#{key},
+				#{cnt , mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+	
+	<select id="boardGetAllCount3" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL boardGetAllCount3(
+				#{tableName},#{key},
+				#{cnt , mode=OUT, jdbcType=INTEGER}
+			)
+		}
 	</select>
 	
 	<insert id="insertBoard" parameterType="com.ezen.p2.dto.BoardVO">
@@ -36,6 +90,41 @@
 	
 	<select id="getBoardOne" resultType="com.ezen.p2.dto.BoardVO">
 		select*from board where b_num=#{param1}
+	</select>
+	
+	<select id="getReply" resultType="com.ezen.p2.dto.ReplyVO">
+		select*from( 
+		select*from( 
+		select rownum as rn, r.*from (
+		(select*from reply where b_num=#{param1})r)
+		)where rn &gt;= #{param2}
+		)where rn &lt;= #{param3}
+	</select>
+	
+	<update id="updateBoard" parameterType="com.ezen.p2.dto.BoardVO">
+		update board set title=#{title},b_content=#{b_content},b_image=#{b_image} 
+		where b_num=#{b_num}
+	</update>
+	
+	<insert id="insertReply" parameterType="com.ezen.p2.dto.ReplyVO">
+		insert into reply(r_num,r_content,id,b_num)
+		values(reply_seq.nextVal,#{r_content},#{id},#{b_num})
+	</insert>
+	
+	<delete id="delReply">
+		delete from reply where r_num=#{param1}
+	</delete>
+	
+	<delete id="deleteBoard">
+		delete from board where b_num=#{param1}
+	</delete>
+	
+	<update id="updateReply">
+		update reply set r_content=#{content} where r_num=#{r_num}
+	</update>
+	
+	<select id="replyAllCount" resultType="_int">
+		select count(*) as cnt from reply where b_num=#{param1}
 	</select>
 
 </mapper>

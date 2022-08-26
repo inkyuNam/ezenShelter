@@ -55,14 +55,13 @@ function reply_check(){
 	if(document.replyFrm.reply.value==""){
 		alert("내용을 입력하세요.");
 		document.replyFrm.reply.focus();
-		return;
+		return false;
 	}
-	document.replyFrm.action="DC.do?command=addReply";
 	document.replyFrm.submit();
 }
 
 function modify(b_num){
-	var url = "DC.do?command=reviewModifyForm&b_num=" + b_num;
+	var url = "reviewModifyForm?b_num=" + b_num;
 	location.href=url;
 }
 
@@ -70,7 +69,7 @@ function ConfirmDelete(b_num){
 	if(!confirm("정말 삭제하시겠습니까?")){
 		return;
 	}else{
-		location.href="DC.do?command=reviewDelete&b_num=" + b_num;
+		location.href="reviewDelete?b_num=" + b_num;
 	}
 }
 
@@ -79,7 +78,7 @@ function confirmDelReply(r_num,b_num){
 	if(!confirm("정말 삭제하시겠습니까?")){
 		return;
 	}else{
-		location.href = "DC.do?command=delReply&r_num="+r_num+"&b_num="+b_num;
+		location.href = "delReply?r_num="+r_num+"&b_num="+b_num;
 	}
 }
 
@@ -119,7 +118,7 @@ function UpReply(rNum,bNum){
 		alert("수정할 내용을 입력하세요.");
 		return false;
 	}
-	location.href = "updateReply&r_num="+rNum+"&b_num="+bNum+"&nContent="+content
+	location.href = "updateReply?r_num="+rNum+"&b_num="+bNum+"&nContent="+content
 }
 </script>
 
@@ -144,7 +143,7 @@ function UpReply(rNum,bNum){
             <div class="content">
                 <div class="d_con">
                     <div class="img">
-                        <img src="/upload/${board.b_image}">
+                        <img src="/images/${board.b_image}">
                         <p>${board.b_content}</p>
                     </div>   
                 </div>
@@ -152,8 +151,7 @@ function UpReply(rNum,bNum){
 
 			
 			<!-- 댓글 시작 -->
-				<form name="replyFrm" method="post" >
-				<!--<input type="hidden" name="command" value="addReply"/>-->
+				<form name="replyFrm" method="post" action="addReply">	
 				<input type="hidden" name="b_num" value="${board.b_num}"/>
 			
                 <div class="reply">
@@ -165,7 +163,7 @@ function UpReply(rNum,bNum){
                 
                 <!-- 댓글수정 폼 히든 -->            	
                <div class="updateReplyForm" id="reEdit_${reply.r_num}">
-				<div class="closeUpdateReply" id="cloEditBtn_${reply.r_num}"><img src="main/images/close.png"></div>
+				<div class="closeUpdateReply" id="cloEditBtn_${reply.r_num}"><img src="/images/close.png"></div>
 				<h2>수정할 내용</h2>
 					<div class="txt">
 					     <input type="text" id="editReply_${reply.r_num}" name="nContent_${reply.r_num}" maxlength='60' placeholder="댓글을 입력하세요."  
@@ -199,10 +197,32 @@ function UpReply(rNum,bNum){
 	                    onClick="confirmDelReply('${reply.r_num}','${reply.b_num}');">	                    
 	                    </div>
 	                    </c:if>
-	                   <!-- "location.href='DC.do?command=delReply&r_num=${reply.r_num}&b_num=${reply.b_num}'" -->
                 	</div><hr>
                 	</c:forEach>
-				
+		
+		
+		<div id="paging" style="margin:0 auto; font-size:130%; font-weight:bold; text-align:center;">
+		<c:url var="action" value="boardViewWithoutCount?b_num=${board.b_num}"/>
+	
+		<c:if test="${paging.prev}">
+			<a href="${action}&page=${paging.beginPage-1}">[이전]</a>&nbsp;
+		</c:if>
+		
+		<c:forEach begin="${paging.beginPage}" end="${paging.endPage}" var="index">
+			<c:choose>
+				<c:when test="${paging.page==index}">
+					<span style="color:red">${index}&nbsp;</span>
+				</c:when>
+				<c:otherwise>
+					<a href="${action}&page=${index}">${index}&nbsp;</a>
+				</c:otherwise>
+			</c:choose>
+		</c:forEach>
+		
+		<c:if test="${paging.next}">
+			<a href="${action}&page=${paging.endPage+1}">[다음]</a>&nbsp;		
+		</c:if>
+	</div>
 	
 	
 				
@@ -212,7 +232,7 @@ function UpReply(rNum,bNum){
                        <input type="hidden" name="id" value="${loginUser.id}">
                     </div>
                     <div class="txt">
-                        <input type="text" name="reply" maxlength='60' placeholder="댓글을 입력하세요."  
+                        <input type="text" name="r_content" maxlength='60' placeholder="댓글을 입력하세요." 
                         style="width:800px; height:90px; margin: 0px 20px; border-radius: 5px; border: 1px solid  #bfbbbb;
                         font-size:100%; color:#061f5c;">
                     </div>
@@ -223,7 +243,7 @@ function UpReply(rNum,bNum){
 					</c:when>
 					
 					<c:otherwise>	
-						<button onClick="reply_check();">등록</button>
+						<button onClick="return reply_check();">등록</button>
 					</c:otherwise>
 					</c:choose>                  
                 </div>
@@ -231,7 +251,7 @@ function UpReply(rNum,bNum){
           		</div>
           	  </form>
 				<div class="return">
-                    <button onClick="location.href='board'">목록으로</button>
+                    <button onClick="location.href='board?page=1'">목록으로</button>
                	</div>
         </div>
 

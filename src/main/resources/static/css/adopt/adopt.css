@@ -1,0 +1,196 @@
+@charset "UTF-8";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* adopt_procedure 페이지 */
+
+	.txt{width:1200px; margin:0 auto;}
+	
+	p1{position:relative; color:rgb(37, 105, 161); margin: o auto; font-weight: bolder; font-size: 120%;}
+  	p3{color:gray;}
+	.button{position:relative; width: 300px; height: 70px; background: #e6ad84; text-align: center; line-height: 70px;
+	    font-size: 150%; border-radius: 30px; margin: 0 auto; }
+        
+	.pro_divs{position:relative; width:1000px; height:200px; background:rgba(255, 244, 244, 0.936); margin:100px 200px 100px;}
+	.pro_divs:first-child{margin:20px 200px 100px;}
+        
+	.pro_txts{position: absolute; width:450px; height:100px; left:400px; bottom:80px;  color:gray;}
+
+	
+
+
+
+/* contract와 ibyang 페이지 */
+
+.contract{
+	position: relative;
+	background-color: white;
+	
+}
+
+article#art {
+   position: relative;
+   margin: 0 auto; width : 680px;
+   padding-right: 10px;
+   text-align: center;
+   font-family: 'Gothic A1', sans-serif;
+   font-weight: 350;
+   font-size: 1em;
+   color: #061f5c;
+   line-height: 1.5em;
+   width: 680px;
+   background-color: white;
+   border: 3px solid #061f5c;
+}
+
+#agree{
+	width : 680px;
+	margin: 0 auto;
+	text-align: center;
+}
+.submit{
+   width: 100px;
+   height: 50px;
+}
+#ibyang2{
+   width: 690px;
+   height: 550px;
+   background-color: white;
+   margin: 0 auto;
+   font-family:  'Gothic A1', sans-serif; 
+   font-weight: 350; color: #061f5c;
+   font-weight: bold; text-align: center;
+
+}
+
+#ibyang2 textarea{
+   resize: none;
+   margin: 0 auto;
+   padding-top: 20px;
+   border-radius: 10px;  
+   margin-top: 10px;
+   font-size: 18px;
+   font-weight: 600;
+   color: #061f5c;
+   margin-bottom: 0;
+   }
+   
+#ibyang2 label{
+   font-size: 22px;
+   
+}
+
+#ibyang2 input[type="date"]{
+   width: 300px;
+   height: 30px;
+   border-radius: 5px;
+   text-align: center;
+}
+
+#ibyang2 input[type="button"]{
+    margin-top: 30px;
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    color: white;
+    background-color: #061f5c;
+    font-size: x-large;
+}
+
+#ibyang2 ::placeholder{
+   font-family: 'Gothic A1', sans-serif;
+   font-size: 18px;
+   text-align: center;
+}
+
+
+
+/* pet_Detail 페이지*/        
+        
+#tit{height:60px; font-size:210%; line-height:60px; background:#061f5c; color:white; font-family: 'Jua', sans-serif;}
+/*.wish{width:100px; height:100px; font-size:300%; border:none; background:white;}*/
+input.heart{width:70px; height:70px; font-size:180%; background:none; border-radius:10px; border:2px solid black; cursor:pointer;}
+
+#detail_content { width: 1000px; text-align: center; margin: 0px; margin-right: auto; 
+margin-left: auto; min-height: 923px; background:white; top:100px;}
+ 
+#detail_title{ background-color: white; top:80px; width:1200px; height:200px; top:100px; }
+
+#p_detail{position:relative; width:1000px; background:white; border:1px solid black;}
+#img{width:400px; height:400px; overflow:hidden; margin:auto; bottom:10px;}
+#img img{position:absolut; width:100%; height:100%; object-fit:cover;}
+#p_info { width: 400px; margin-left: 100px; border:3px solid black; margin-top:20px;
+margin-bottom: 20px; align:center; margin-left:auto; margin-right:auto; background:white;}
+ 
+#p_info th { background-color: #061f5c; width:50px; color:white; font-weight:bold;}
+#petdetail{margin:0 auto;}
+
+#petdetail h2 {text-align: center;}
+
+
+
+.btn {
+background:white; 
+color:red; 
+margin: 0 auto; 
+width:100px; 
+height:80px; 
+font-size:30px; 
+border-radius: 5px; 
+text-align:center;}
+        
+        
+        
+        
+/* petList 페이지 */
+
+		.container .title h1{ font-size: 30px;}
+        .container .title ul{ list-style: none; padding-left: 0; line-height: 50px; border-bottom: 1px dotted  rgb(194, 194, 194);}
+       	.container .title ul li { margin-right: 30px; display: inline; border-left: 1px solid rgb(194, 194, 194); 
+        padding-left: 0; padding: 0px 10px 0px 10px; margin: 5px 0px 5px 0px; font-weight: bold; cursor:pointer;}
+       	.container .title ul li a:hover{font: bold; color: #264baa;}
+
+        .container .title li:first-child { border-left: none;}
+        .container .title ul li a{text-decoration: none; color: #000000; }
+        
+        
+        .container .title li:eq(8) { border-left: none;}
+        
+        .selected{background-color:orange; color:white;}
+        .pet_selected{background-color:skyblue; color:white;}
+        
+        .container .petlist { display: flex; flex-wrap: wrap; justify-content: space-between;}
+        .container .petlist .pet{border: 1px solid rgb(194, 194, 194); border-radius: 5px; height: 350px; 
+        width: 250px; padding: 10px; margin: 50px 40px 50px 40px; }
+       	.container .petlist .pet img{ height: 200px; width: 250px;}
+       	.container .petlist .pet p{ font-size: 14px; opacity: .8;}
+
+       	.container .petlist .pet button {background-color: black; color: white; border: 2px solid white; border-radius: 5px; padding: 5px 10px; font-size: 10px; transition: .5 ease; float: right; }
+       
+        .container .petlist .pet button a{ color: white;}
+        .container .petlist .pet button a:hover {color: black;}
+
+        .container .petlist .pet button:hover{ transition: .5 ease; border: 2px solid black; background: transparent; color: black;}
+        .container .paging{width: 1100px; height: 50px;}
+        .container .paging ul{list-style: none; padding-left: 0; line-height: 50px; text-align: center;}
+        .container .paging ul li{margin-right: 30px; display: inline; padding-left: 0;  font-size: 100%; text-decoration: none;   }
+        .container .paging ul li a{ text-decoration: none; color: black;}
+        .container .paging ul li a:active{font: bold; color: #264baa;}
+        .container .paging ul li a:hover{font: bold; color: #264baa;}
+   
+    
+
+    
+        

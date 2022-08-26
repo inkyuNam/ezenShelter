@@ -116,19 +116,22 @@ CREATE TABLE member
 	id varchar2(20) NOT NULL,
 	pwd varchar2(50) NOT NULL,
 	name varchar2(30) NOT NULL,
+	phone varchar2(20) NOT NULL,
 	email varchar2(30),
+	post_code varchar2(15) NOT NULL,
 	address1 varchar2(100) NOT NULL,
 	address2 varchar2(100),
 	address3 varchar2(50),
 	PRIMARY KEY (id)
 );
 
-insert into member(id,pwd,name,email,address1,address2,address3)
-values('hong','1234','홍길동','hong@naver.com','서울시','신촌로','이젠빌딩');
-insert into member(id,pwd,name,email,address1,address2,address3)
-values('one','1234','원이','one@naver.com','경기도','일산','일산동');
-insert into member(id,pwd,name,email,address1,address2,address3)
-values('two','1234','둘이','two@naver.com','서울','은평구','은평빌딩');
+insert into member(id,pwd,name,phone,email,post_code,address1,address2,address3)
+values('hong','1234','홍길동','010-0101-0101','hong@naver.com','231','서울시','신촌로','이젠빌딩');
+insert into member(id,pwd,name,phone,email,post_code,address1,address2,address3)
+values('one','1234','원이','010-1111-1111','one@naver.com','111','경기도','일산','일산동');
+insert into member(id,pwd,name,phone,email,post_code,address1,address2,address3)
+values('two','1234','둘이','010-2222-2222','two@naver.com','222','서울','은평구','은평빌딩');
+
 
 delete from board;
 insert into board values(seq_board_seq.nextVal, 'one', '문의드려요','오늘 입양받았는데 아이가 너무 쾌할하고 굳굳', sysdate, 'help.png', 0);

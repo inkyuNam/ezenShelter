@@ -18,7 +18,7 @@ body{
 
 #head{
 	position: fixed;
-	width: 1200px; height: 100px;
+	width: 1200px; height: 105px;
 	border-bottom: 1px solid #061f5c;
 	background-color: white;
 	margin: 0 auto; padding: 0; margin:0;
@@ -48,7 +48,7 @@ body{
 .menues{
 	position: relative;
 	text-align: center;
-	right: -430px;
+	right: -400px;
 }
 .menues{
 	margin:0;
@@ -121,9 +121,10 @@ body{
 
 
 
+/* 히든 로그인 css */
 
-
-#loginForm{position:absolute; left:400px; top:50px; width:400px; height:350px; border:2px solid gray; background:white; display:none; z-index:1500;}
+#login_wrap{position:absolute; width:400px; left:400px;}
+#loginForm{position:absolute; width:400px; height:350px; display:none; border:2px solid gray;  background:white; z-index:1500;}
 
 .closeLog{position:absolute; top:5px; right:5px; cursor:pointer;}
 
@@ -155,8 +156,8 @@ border:2px solid gray; background:white; z-index:1500; display:none;}
 	#toclose{position:fixed; width:20px; height:20px; margin-top: 0; right:10%; bottom: 250px; z-index:10;}
 		 
 	#help_icon{position:fixed; right:10%; bottom: 100px;width:100px; 
-			height:100px; background-image:url(../images/help.png);
-			background-size:100px 100px; z-index:10;}
+			height:100px; background-image:url(../../../images/help.png);
+			background-size:100px 100px; z-index:10; cursor:pointer;}
 		
 
 
@@ -164,7 +165,7 @@ border:2px solid gray; background:white; z-index:1500; display:none;}
 
 /* help div */
 
-#help_wrap{position:absolute; width:400px; height:650px; border:2px solid gray; margin : 0 auto; display:none; 
+#help_wrap{position:absolute; top:10%; rigth:0; width:400px; height:650px; border:2px solid gray; margin : 0 auto; display:none; 
 			background:white; left:400px; z-index:1000;}
 #btn119{width:80px; height:30px; margin:0 auto; border:1px solid silver; cursor:pointer; text-align:center; font-weight:bold; 
 	line-height:30px; background-color:#dcdcdc;}

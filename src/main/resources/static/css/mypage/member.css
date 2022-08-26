@@ -1,0 +1,212 @@
+
+/* 어디든지 공통일거같아서 맨위. 일단 사이드메뉴 포함 */
+ul { list-style: none;}
+a{text-decoration: none; color: #061f5c;}
+
+input[type=password]{border:0; outline:none;}
+input[type=text]{border:0; outline:none;}
+
+body{
+	overflow-x: hidden; overflow-y: auto; margin:0; padding:0;
+}
+
+
+#form{
+	position: absolute;
+	margin-top: 30px;
+	left: 30%;
+	width: 300px;
+}
+
+
+
+/* 사이드 메뉴  */
+
+	.container { width: 300px;float:left;}
+	.sidebar { width: 220px; height: 630px; padding: 0px 20px; border: 1px solid #cccc;
+	    border-top: 2px solid black;margin-top:50px;}
+	.img-section { width: 100%; text-align: center;}
+	.img-section img {width: 100%; height: 100%;}
+	
+	.menu-section { list-style: none;}
+	
+	.menu { padding: 0;}
+	.menu li { height: 50px; line-height: 50px; text-align: center;}
+	.menu li a {   color: black;}
+	.menu li a img { width: 30px; vertical-align: middle;}
+	
+	.thick { font-weight: bold;}
+	.lined { border-bottom: 1px dotted;}
+
+
+/* 회원가입 */
+		#ezenLogo{position:relative; margin:0 auto; display:inline-block; width:200px; height:70px; text-align:center; 
+		top:30px; left:50%; transform:translate(-50%, 0%);}
+		.joinWrap{position:relative; width:320px; height:720px;border:1px solid #dcdcdc; margin:0 auto; 
+		top:50px; padding:30px; border-radius:7px;}
+		.fonts{color:#061f5c; font-size:110%; font-weight:bold;}
+		.userInput{position:absolute; width:300px; height:30px; border:1px solid gray; display:flex; 
+		align-items: center; border-radius:5px;}
+		#prevBtn{position:absolute; bottom:30px; left:30px; border:1px solid gray; border-radius:5px;
+		cursor:pointer;}
+		
+		#postBtn{position:absolute; left:180px;}
+		
+		#msg{position:absolute; bottom:70px; color:red;}
+		
+		#backBtn{position:absolute; bottom:30px; left:30px; border:1px solid gray; border-radius:5px;
+		cursor:pointer;}
+		#joinBtn{position:absolute; bottom:30px; right:50px; border:1px solid gray; border-radius:5px;
+		cursor:pointer;}
+		
+		#prevBtn:hover{background-color:#EBFBFF;}
+		#backBtn:hover{background-color:#EBFBFF;}
+		#joinBtn:hover{background-color:#EBFBFF;}
+		#joinIdCheck:hover{background-color:#EBFBFF;}
+		
+		#joinIdInput{position:absolute; width:200px; height:30px; left:0; border:1px solid gray; border-radius:5px;}
+		#joinIdCheck{position:absolute; width:80px; height:30px; right:0; border:1px solid gray; border-radius:5px;
+		text-align:center; line-height:30px; cursor:pointer;}
+
+
+
+/* mypage_adoptDetail */
+
+	/*  내가지금하는곳 페이지 디테일 																			*/
+	#mypagelistwrap{
+		margin-left:335px;
+	    width: 800px;
+	    height: 1000px;
+	    padding-bottom: 150px;
+	    padding-top:30px;
+	    font-family: 'Gothic A1', sans-serif; font-weight: 700; color: #061f5c;
+	}
+	caption{
+		font-size: 30px;
+		font-style: bold;
+		margin-bottom:30px;
+		font-family: 'Jua', sans-serif;font-weight: 10; color: #061f5c; 
+	}
+	#mypagelistwrap table{
+		border: 1px solid black;
+		width: 100%;
+		background-color: white;
+		text-align: center; 	
+		border-collapse: collapse;
+		border: 2px solid #061f5c;
+	}
+	#mypagelistwrap table td{
+		height: 100px;
+	}
+	#mypagelistwrap tr{
+		border-bottom: 2px solid black;
+	}
+	
+
+	/* 회원 정보 수정을 위한 비밀번호 확인 폼 css */
+	#check_pwdForm{position:absolute; width:400px; height:100px; border:2px solid #061f5c; padding:10px; display:none;
+	z-index:100; background-color:#f0f2ef; left:30%; top:10%;}
+	#check_pwdFormFont{color:#061f5c; font-weight:bold;}
+	#checkPwdCloseForm{position:absolute; cursor:pointer; right:10px; top:5px;}
+	#checkPwdInputCss{font-size:110%; border:2px solid #061f5c;}
+	#check_pwd_button{position:absolute; cursor:pointer; width:35px; height:25px; right:90px; border:1px solid #061f5c; text-align:center;
+	bottom:42px; color:#061f5c; font-weight:bold; background-color:silver;}
+	
+	
+	
+	/* 회원 정보 수정 */
+	
+	.main-area{float:left; width:800px; height: 630px; margin-left:50px;}
+	
+	#valued{border: 1px solid #dadada; background-color: rgba(233, 233, 233, 0.924); width: 250px; height: 30px;  padding-left: 5px; color: #bbbbbb; line-height: 35px; font-size: 15px; font-weight: 200;}
+	
+	.input_value{width: 200px; height: 30px; font-size: 15px; font-weight: 30; border:1px solid gray;}	
+	
+	.adds_input{width:250px; height:35px; border:1px solid gray; margin-left:15px;}
+	
+	
+	
+	.userInfo h4{ font-weight: 100; line-height: 10px;}
+	
+	.rightBlock{width: 350px; height:550px; float:left;}
+	.leftBlock { vertical-align: top; width: 350px; float:left;}
+	
+	
+	.leftBlock h4{ font-weight: 100; }
+	
+	.myButton {
+		background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+		background-color:#7892c2;
+		border-radius:9px;
+		float: right;
+		cursor:pointer;
+		color:#ffffff;
+		font-family:Arial;
+		font-size:15px;
+		font-weight:bold;
+		padding:12px 37px;
+		text-decoration:none;
+		text-shadow:0px 1px 0px #1047c9;
+	}
+	.myButton:hover {
+		background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+		background-color:#476e9e;
+	}
+	.myButton:active {
+		position:relative;
+		top:1px;
+	}      
+	
+	
+	
+	/* 1:1 문의 게시판 */
+	table#obo_board{
+    width: 800px;
+    border-collapse: collapse;
+    line-height: 24px;
+	}
+	#obo_board td,#obo_board th {
+	    border-top:1px solid black;
+	    border-bottom:1px solid black;
+	    border-collapse: collapse;
+	    text-align: left;
+	    padding: 10px;
+	}
+	#obo_board th {
+		background: rgb(221, 221, 221);
+	}
+	#write_obo_board{
+	    text-decoration: none;
+	    color: black;
+	}
+	#write_obo_board:hover{
+	    text-decoration: underline;
+	 
+	}
+
+
+
+	
+
+
+	/* 회원 탈퇴 관련 */
+	#topForm{position:relative; width:1000px; height:50px; margin:0 auto; top:50px;}
+	#procedure{position:absolute; right:0px; width:450px; height:50px;}
+	#procedure ul{list-style:none;}
+	#procedure ul li{float:left; margin-right:30px;}
+	.this_step{font-weight:bold; font-size:120%;}
+	
+	
+	#step_two{display:none; border:1px solid gray; width:900px; margin:0 auto; padding-left:15px;}
+	
+	#mainForm{position:relative; margin:0 auto; top:20px; width:900px; height:400px; border:1px solid gray; padding:10px;}
+	#conFirm{position:absolute; bottom:40px; background:silver;}
+	#bottomForm{position:relative; width:900px; height:50px; margin:0 auto; top:25px; border:1px solid gray; padding:10px;
+	line-height:45px; background-color:skyblue;}
+	#input_chk{position:absolute; width:400px; right:0; top:10px;}
+
+
+	#success{position:relative; width:800px; height:200px; top:50px; margin:0 auto; border:1px solid silver;}
+	#re{position:absolute; background-color:orange; width:100px; height:50px; border:1px solid black; font-size:130%; 
+	left:350px;; cursor:pointer; bottom:20px; text-align:center; line-height:45px;}
+

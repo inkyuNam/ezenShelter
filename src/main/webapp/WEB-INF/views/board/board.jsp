@@ -1,25 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../include/headerfooter/header.jsp" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+<link  rel="stylesheet" href="/css/board/board.css">
 
 <br>
 <form name="boardFrm" method="post">
 <div id="searchWrap">
 	<div id="tool">
-	
 	<select name="searchKind" style="width:100px; height:37px; font-size:100%; border:none; font-weight:bold; 
 	color:#061f5c; border-radius:5px; background-color:#f0f2ef;">
-			<option value="title" style="font-weight:bold;"> 제목</option>
-            <option value="content" style="font-weight:bold;"> 내용</option>
-            <option value="id" style="font-weight:bold;"> 아이디</option>
+			<option value="" style="font-weight:bold;"> 선택</option>
+			<option value="title" id="title" style="font-weight:bold;"> 제목</option>
+            <option value="content" id="content" style="font-weight:bold;"> 내용</option>
+            <option value="id" id="id" style="font-weight:bold;"> 아이디</option>
+           
+            <%-- <option value="title" <%{%>selected="selected"<%}%>>제목</option>
+			<option value="content" <% if(kind.equal("content")){%>selected="selected"<%}%>>내용</option>
+			<option value="id" <% if(변수.equal("id")){%>selected="selected"<%}%>>아이디</option> --%>
     </select>
+       
+       <script type="text/javascript">
+       var selected = [[${selected}]];
+       
+       if(selected == '제목'){
+           $('#title').attr('selected','selected');
+       } else if(selected == '내용'){
+           $('#content').attr('selected','selected');
+       } else{
+           $('#id').attr('selected','selected');
+       }
+       </script>
        
 	</div>
 	<div id="inputSearch"><input id="searchInput" type="text" size="13" name="key" value="${key}"></div>
-	<div id="searchGo" onClick="view_search('reviewBoard')">검&nbsp;색</div>
-	<div id="listView" onClick="view_list('reviewBoard')">전체 목록</div>	
+	<div id="searchGo" onClick="view_search('board')">검&nbsp;색</div>
+	<div id="listView" onClick="view_list('board')">전체목록</div>
 	
+	<script type="text/javascript">
+	
+		function view_search(comm){
+			if(document.boardFrm.key.value==""){
+				alert("검색어를 입력해주세요.");
+				return;
+			}
+			var url = comm+"?page=1";
+			document.boardFrm.action=url;
+			document.boardFrm.submit();	
+		}
+		
+		function view_list(comm){
+			document.boardFrm.key.value="";
+			document.boardFrm.searchKind.value="";
+			document.boardFrm.action = comm + "?page=1";
+			document.boardFrm.submit();
+		}
+	
+	</script>
 	
 	<c:choose>
 		<c:when test="${empty loginUser}">
@@ -40,7 +78,7 @@
 	<div id="boardViewWrap">
 
 	<c:choose>
-	    	<c:when test="${boardListSize<=0}">
+	    	<c:when test="${fn:length(boardList)==0 }">
 	    		<tr><td width="100%" colspan="7" align="center" height="23">검색 결과가 없습니다.</td></tr>
 	    	</c:when>
 	    	<c:otherwise>
@@ -48,7 +86,7 @@
 				<c:forEach items="${boardList}" var="bl">
 				<table id="reviewTable">
 					<tr>
-						<td id="boardImg" rowspan="2" style="border:none;"><img src="/upload/${bl.B_IMAGE}"/></td>
+						<td id="boardImg" rowspan="2" style="border:none;"><img src="/images/${bl.B_IMAGE}"/></td>
 						<td id="boardTitle"><a href="reviewBoardDetail?num=${bl.B_NUM}">${bl.TITLE}</a></td>
 					</tr>
 					<tr>		
@@ -81,6 +119,7 @@
 		<c:if test="${paging.next}">
 			<a href="${action}?page=${paging.endPage+1}">[다음]</a>&nbsp;	
 		</c:if>
+	</div>
 	</div>
 	
 	

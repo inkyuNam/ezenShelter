@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+    <mapper namespace="com.ezen.p2.dao.IAdminDao">
+    	<resultMap  id="adminMap" type="java.util.HashMap"></resultMap>
+    	
+    	<select id="getHelp_n" resultType="com.ezen.p2.dto.HelpVO">
+    		select * from help where result = 'n'
+    	</select>
+    	
+    	<select id="getQna_n" resultType="com.ezen.p2.dto.QnaVO">
+    		select*from( 
+			select*from( 
+			select rownum as rn, q.*from
+    		((select * from qna where result = 'n') q )
+    		)where rn &gt;= #{param1}
+			)where rn &lt;= #{param2}
+    	</select>
+    			
+    	<select id="getHelp_y" resultType="com.ezen.p2.dto.HelpVO">
+    		select*from( 
+			select*from( 
+			select rownum as rn, h.*from
+    		((select * from help where result = 'y')h)
+    		)where rn &gt;= #{param1}
+			)where rn &lt;= #{param2}
+    	</select>
+    	
+    	<select id="getQna_y" resultType="com.ezen.p2.dto.QnaVO">
+    		select*from( 
+			select*from( 
+			select rownum as rn, q.*from
+    		((select * from qna where result = 'y') q )
+    		)where rn &gt;= #{param1}
+			)where rn &lt;= #{param2}
+    	</select>	
+    	
+    	<select id="getShelter" resultType="com.ezen.p2.dto.ShelterVO">
+    		select * from shelter
+    	</select>
+    	
+    	<select id="getQnaOne" resultType="com.ezen.p2.dto.QnaVO">
+    		select * from qna where qa_num=#{param1}
+    	</select>
+    	
+    	<update id="insertQnaAnswer" statementType="CALLABLE" parameterType="java.util.HashMap">
+    		{CALL insertQnaAnswer(#{qnum},#{answer})}
+    	</update>
+    	
+    	<select id="getCountQnaResultN" resultType="_int">
+    		select count(*) from qna where result='n'
+    	</select>
+    	
+    	<select id="getCountQnaResultY" resultType="_int">
+    		select count(*) from qna where result='y'
+    	</select>
+    	
+    	<select id="getAdminHelpOne" resultType="com.ezen.p2.dto.HelpVO">
+    		select * from help where h_num=#{param1}
+    	</select>
+    	
+    	<update id="helpEnd">
+    		update help set result='y' where h_num=#{param1}
+    	</update>
+    	
+    	<delete id="helpDel">
+    		delete from help where h_num=#{param1}
+    	</delete>
+    	
+    	<select id="getCountHelpResultY" resultType="_int">
+    		select count(*) from help where result='y' 
+    	</select>
+    			
+    </mapper>

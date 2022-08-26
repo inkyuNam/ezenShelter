@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="com.ezen.p2.dao.IPetDao">
+
+	<select id="getAllCount" resultType = "int" >
+		select count(*) from pet
+	</select>
+	
+	
+	<!-- 펫 리스트 (페이징)-->
+	<select id="getPetList" resultType="com.ezen.p2.dto.PetDto">
+		select * from (
+		select * from (
+		select rownum as rn, p.* from (
+		(select * from pet where region=#{param3} and type1=#{param4} order by state) p)
+		) where rn &gt;= #{param1}
+		) where rn &lt;= #{param2}
+		
+	</select>
+	
+	
+	
+	<!-- 펫 상세페이지 -->
+	<select id="getpetDetail" resultType="com.ezen.p2.dto.PetDto">
+		select * from pet where p_num=#{p_num}
+	</select>
+	
+	
+	
+	<select id="getCount" resultType="_int" parameterType="_int">
+		select count(*) as cnt from pet where region = #{param1} and type1 = ${param2}
+	</select>
+	
+	
+	
+	<!-- 찜추가 -->
+	<insert id="addHeart" parameterType="com.ezen.p2.dto.HeartDto">
+		insert into heart (num,p_num, id)values(SEQ_heart_num.nextVal, #{p_num}, #{id})
+	</insert>
+	
+	
+	<!-- 찜삭제 -->
+	<delete id="removeHeart" parameterType="com.ezen.p2.dto.HeartDto">
+		delete from heart where id=#{id} and p_num=#{p_num}
+	</delete>
+	
+	<!-- 찜 조회 -->
+	<select id="getHeart" parameterType="com.ezen.p2.dto.HeartDto" resultType="com.ezen.p2.dto.HeartDto">
+		select * from heart where p_num=#{p_num} and id=#{id}
+	</select>
+	
+	
+	
+	<!-- 입양신청서 -->
+	<insert id="getadoptInfo">
+		insert into heart (num,tmp, id, p_num, reason,consulting ) 
+		values(SEQ_heart_num.nextVal, 'n', #{hdto.id} , #{hdto.p_num} , #{hdto.reason} ,#{consulting} )
+	</insert>
+	
+	<update id="updateState">
+		update pet set state = 'c' where p_num = #{p_num}
+	</update>
+	
+	
+	
+	</mapper>
